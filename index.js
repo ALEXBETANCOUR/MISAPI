@@ -1,3 +1,13 @@
 import Server from "./server/server.js";
+import colors from 'colors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 const server = new Server();
-server.listen();
+
+try {
+    await server.listen();
+} catch (error) {
+    console.error('No fue posible iniciar el servidor', error);
+    process.exit(1);
+}
